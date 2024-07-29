@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -29,10 +29,10 @@
         }
         nav a {
             color: #333;
-            padding: 0.5em 1em;
+            padding: 0.5em 1.5em;
             text-decoration: none;
             text-transform: uppercase;
-            margin: 0 0.5em;
+            margin: 0 1em;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         nav a:hover {
@@ -63,9 +63,10 @@
         ul {
             list-style-type: disc;
             padding: 0 0 0 1.5em;
+            line-height: 1.6;
         }
         ul li {
-            margin: 0.5em 0;
+            margin: 1em 0;
         }
         ul li a {
             color: #0066cc;
@@ -79,6 +80,7 @@
             color: #0066cc;
             text-decoration: none;
             transition: color 0.3s ease;
+            margin: 0 0.5em;
         }
         .contact-info a:hover {
             color: #004080;
@@ -106,29 +108,10 @@
             margin: 1em 0;
             border-radius: 8px;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        form label {
-            margin-top: 1em;
-        }
-        form input, form textarea {
-            padding: 0.75em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-top: 0.5em;
-        }
-        form input[type="submit"] {
-            background-color: #0066cc;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-top: 1em;
-            transition: background-color 0.3s ease;
-        }
-        form input[type="submit"]:hover {
-            background-color: #004080;
+        .highlight {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            margin-bottom: 0.5em;
         }
         .blog-post {
             margin-bottom: 2em;
@@ -146,6 +129,7 @@
         <div class="contact-info">
             <p><a href="tel:+41772390980">+41 77 239 09 80</a> | <a href="mailto:shcherell@gmail.com">shcherell@gmail.com</a> | <a href="https://www.linkedin.com/in/shcherell/" target="_blank">LinkedIn</a> | <a href="https://github.com/shcherell/personal-website/blob/main/Elena_Shcherbinina_Resume.pdf?raw=true" download>Download Resume</a></p>
             <img src="https://github.com/shcherell/personal-website/blob/main/path_to_your_photo.jpeg?raw=true" alt="Elena Shcherbinina" width="150">
+            <p>Transforming Ideas into Action | Solving Problems & Driving Results | PMP-Certified Project Manager | Expert in Agile & Marketing Strategies</p>
         </div>
     </header>
     <nav>
@@ -175,34 +159,25 @@
             <div class="project">
                 <h3>Centum</h3>
                 <img src="https://github.com/shcherell/personal-website/blob/main/path_to_centum_image.jpeg?raw=true" alt="Centum">
-                <p>Narrative-driven adventure where everything may be a lie. Detail: <a href="https://store.steampowered.com/app/2625550/Centum/" target="_blank">Steam</a></p>
                 <ul>
-                    <li>This project was developed by a distributed team consisting of an art director, 3 artists, 2 programmers, a sound designer, a game designer, a product owner, and a writer.</li>
-                    <li>External suppliers included a team of translators and testers, and the project was financed by an external investor.</li>
-                    <li>The project took 2 years to complete. We worked using milestones, employing SCRUM and Kanban methodologies.</li>
-                    <li>My role included making technical decisions during planning, planning milestones, decomposing tasks for each milestone, prioritizing tasks, budgeting, conducting regular team meetings, supporting the team, resolving conflicts, maintaining motivation, and organizing the testing process.</li>
-                    <li>I also communicated with service providers and integrated them into the workflow. Additionally, I actively participated in testing and was part of the game design team.</li>
+                    <li><span class="highlight">My Role:</span> Managed technical decisions during planning, planned milestones, decomposed tasks for each milestone, prioritized tasks, budgeted, conducted regular team meetings, supported the team, resolved conflicts, maintained motivation, and organized the testing process.</li>
+                    <li><span class="highlight">Project Description:</span> Narrative-driven adventure where everything may be a lie. <a href="https://store.steampowered.com/app/2625550/Centum/" target="_blank">Steam</a></li>
                 </ul>
             </div>
             <div class="project">
                 <h3>Vengeance of Mr. Peppermint</h3>
                 <img src="https://github.com/shcherell/personal-website/blob/main/path_to_vengeance_image.jpeg?raw=true" alt="Vengeance of Mr. Peppermint">
-                <p>A 2D side-scrolling fighter with Korean thriller vibes. Detail: <a href="https://store.steampowered.com/app/2287560/Vengeance_of_Mr_Peppermint/" target="_blank">Steam</a></p>
                 <ul>
-                    <li>This project was developed by a distributed team consisting of an art director, 4 artists, one programmer, a product owner, a sound designer, and a translator.</li>
-                    <li>External service providers included testers. The project was financed by a publisher and lasted 1 year.</li>
-                    <li>The financing was milestone-based. My work included planning milestones, decomposing tasks, conducting regular meetings, supporting the team, preparing reports, presenting milestones to the publisher, gathering feedback, and managing the budget.</li>
+                    <li><span class="highlight">My Role:</span> Planned milestones, decomposed tasks, conducted regular meetings, supported the team, prepared reports, presented milestones to the publisher, gathered feedback, and managed the budget.</li>
+                    <li><span class="highlight">Project Description:</span> A 2D side-scrolling fighter with Korean thriller vibes. <a href="https://store.steampowered.com/app/2287560/Vengeance_of_Mr_Peppermint/" target="_blank">Steam</a></li>
                 </ul>
             </div>
             <div class="project">
                 <h3>Dwarven Skykeep</h3>
                 <img src="https://github.com/shcherell/personal-website/blob/main/path_to_dwarven_skykeep_image.jpeg?raw=true" alt="Dwarven Skykeep">
-                <p>Strategic 2D base builder. Details: <a href="https://store.steampowered.com/app/1076120/Dwarven_Skykeep/" target="_blank">Steam</a></p>
                 <ul>
-                    <li>This project was developed by a distributed team consisting of 3 artists, 3 programmers, 4 game designers, a narrative designer, a sound designer, and involved testers.</li>
-                    <li>The project was partially financed by a publisher and took 2 years to complete.</li>
-                    <li>The work was structured by milestones with intermediate releases.</li>
-                    <li>My work included organizing the distributed team's work, conducting regular meetings, maintaining team motivation, budget management, release management, preparing reports, presenting milestones to the publisher, gathering feedback, active testing, and participating in game design (I designed one of the game worlds).</li>
+                    <li><span class="highlight">My Role:</span> Organized the distributed team's work, conducted regular meetings, maintained team motivation, managed the budget, handled release management, prepared reports, presented milestones to the publisher, gathered feedback, actively tested, and participated in game design (designed one of the game worlds).</li>
+                    <li><span class="highlight">Project Description:</span> Strategic 2D base builder. <a href="https://store.steampowered.com/app/1076120/Dwarven_Skykeep/" target="_blank">Steam</a></li>
                 </ul>
             </div>
         </div>
@@ -210,17 +185,17 @@
     <div class="container" id="achievements">
         <h2>Key Achievements</h2>
         <ul>
-            <li>Successfully implemented Agile (SCRUM and Kanban) methodology at Hack The Publisher. Previously, teams worked in a disjointed manner without regular meetings or iteration planning. I treated this as a change management project, wrote clear instructions for the new work principles, conducted workshops, handled objections, and transitioned to the new work order over several iterations. The result was increased work efficiency, strengthened team spirit, and improved motivation.</li>
-            <li>Simultaneously managed 3 projects. According to the company's goals, it was necessary to develop 3 projects simultaneously. One project had external funding, and 2 were internally funded. I planned the projects and key company resources. All projects were completed within budget and schedule. This required careful time management, competent delegation of some tasks, and high organization.</li>
-            <li>Reduced the cost of online advertising conversion by more than 30% for a major supplier of home medical supplies. This was achieved by restructuring the website, fine-tuning analytics, changing advertising strategies, and conducting A/B testing.</li>
+            <li><span class="highlight">Implemented Agile Methodology:</span> Successfully implemented Agile (SCRUM and Kanban) methodology at Hack The Publisher. Previously, teams worked in a disjointed manner without regular meetings or iteration planning. The result was increased work efficiency, strengthened team spirit, and improved motivation.</li>
+            <li><span class="highlight">Managed Multiple Projects:</span> Simultaneously managed 3 projects according to the company's goals. Planned the projects and key resources. All projects were completed within budget and schedule, requiring careful time management and competent delegation.</li>
+            <li><span class="highlight">Reduced Advertising Costs:</span> Reduced the cost of online advertising conversion by more than 30% for a major supplier of home medical supplies through website restructuring, fine-tuning analytics, changing advertising strategies, and conducting A/B testing.</li>
         </ul>
     </div>
     <div class="container" id="facts">
         <h2>Facts</h2>
         <ul>
-            <li>Worked at Yandex (the largest Russian internet company with a matrix structure). Started as an account manager and was promoted to head of the commercial department in Kazakhstan.</li>
-            <li>Organized the opening of a coffee shop (selection of location, supplier selection, construction supervision, staff recruitment, workspace organization).</li>
-            <li>Worked at a startup and was invited to join the co-founders.</li>
+            <li><span class="highlight">Yandex Experience:</span> Worked at Yandex (the largest Russian internet company with a matrix structure). Started as an account manager and was promoted to head of the commercial department in Kazakhstan.</li>
+            <li><span class="highlight">Coffee Shop Organizer:</span> Organized the opening of a coffee shop (selection of location, supplier selection, construction supervision, staff recruitment, workspace organization).</li>
+            <li><span class="highlight">Startup Co-Founder:</span> Worked at a startup and was invited to join the co-founders.</li>
         </ul>
     </div>
     <div class="container" id="blog">
@@ -231,18 +206,6 @@
             <p>This is an example of a blog post. You can share updates, insights, and other information here.</p>
         </div>
         <!-- Additional blog posts can be added here -->
-    </div>
-    <div class="container" id="contact">
-        <h2>Contact</h2>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
-            <label for="message">Message:</label><br>
-            <textarea id="message" name="message" rows="4" required></textarea><br>
-            <input type="submit" value="Send">
-        </form>
     </div>
     <footer>
         <p>&copy; 2024 Elena Shcherbinina</p>
