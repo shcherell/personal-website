@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elena Shcherbinina - Project Manager</title>
+    <title>Blog Carousel</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -14,78 +14,6 @@
             background-color: #ffffff;
             color: #333;
         }
-        header {
-            background-color: #f9f9f9;
-            color: #333;
-            padding: 1.5em 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .contact-info p {
-            margin: 0.5em 0;
-        }
-        .contact-info img {
-            border-radius: 50%;
-            margin-bottom: 0.5em;
-        }
-        .contact-info .tagline {
-            font-weight: bold;
-            margin-top: 0.5em;
-            font-size: 1.2em;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-top: 1em;
-        }
-        .social-links a {
-            color: #0066cc;
-            margin: 0 0.5em;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-        .social-links a:hover {
-            color: #004080;
-        }
-        .social-links a span {
-            margin-left: 0.5em;
-        }
-        nav {
-            background-color: #e0e0e0;
-            padding: 1em 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .nav-links a {
-            color: #333;
-            padding: 0.5em 1.5em;
-            text-decoration: none;
-            text-transform: uppercase;
-            margin: 0 1em;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .nav-links a:hover {
-            background-color: #cccccc;
-            color: #333;
-        }
-        .hamburger {
-            display: none;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
         .container {
             padding: 2em;
             max-width: 1200px;
@@ -93,68 +21,6 @@
             background-color: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-        }
-        footer {
-            background-color: #e0e0e0;
-            color: #333;
-            text-align: center;
-            padding: 1em 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        h2 {
-            color: #333;
-            font-weight: 500;
-        }
-        .skills, .about {
-            margin-bottom: 2em;
-        }
-        ul {
-            list-style-type: disc;
-            padding: 0 0 0 1.5em;
-            line-height: 1.6;
-        }
-        ul li {
-            margin: 1em 0;
-        }
-        ul li a {
-            color: #0066cc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        ul li a:hover {
-            color: #004080;
-        }
-        .projects-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .project {
-            flex: 0 1 45%;
-            margin: 1em;
-            padding: 1em;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .project img {
-            max-width: 100%;
-            height: auto;
-            margin: 1em 0;
-            border-radius: 8px;
-        }
-        .highlight {
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 600;
-            margin-bottom: 0.5em;
-            color: #333;
-        }
-        .project-description {
-            font-family: 'Roboto Condensed', sans-serif;
-            font-size: 0.9em;
-            color: #666;
         }
         .carousel {
             position: relative;
@@ -169,6 +35,10 @@
         .carousel-item {
             min-width: 100%;
             box-sizing: border-box;
+            display: none;
+        }
+        .carousel-item.active {
+            display: block;
         }
         .carousel-item h3 {
             margin: 0 0 0.5em 0;
@@ -189,6 +59,7 @@
             transition: 0.6s ease;
             border-radius: 0 3px 3px 0;
             user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
         }
         .next {
             right: 0;
@@ -197,115 +68,14 @@
         .prev:hover, .next:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-            }
-            .nav-links a {
-                padding: 1em;
-                margin: 0;
-            }
-        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="contact-info">
-            <img src="https://github.com/shcherell/personal-website/blob/main/path_to_your_photo.jpeg?raw=true" alt="Elena Shcherbinina" width="150">
-            <p class="tagline">Transforming Ideas into Action | Solving Problems & Driving Results | PMP-Certified Project Manager | Expert in Agile & Marketing Strategies</p>
-            <div class="social-links">
-                <a href="tel:+41772390980"><i class="fas fa-phone"></i><span>Call</span></a>
-                <a href="mailto:shcherell@gmail.com"><i class="fas fa-envelope"></i><span>Email</span></a>
-                <a href="https://www.linkedin.com/in/shcherell/" target="_blank"><i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
-                <a href="https://github.com/shcherell/personal-website/blob/main/Elena_Shcherbinina_Resume.pdf?raw=true" download><i class="fas fa-file-download"></i><span>Resume</span></a>
-            </div>
-        </div>
-    </header>
-    <nav>
-        <div class="hamburger" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#facts">Facts</a></li>
-            <li><a href="#blog">Blog</a></li>
-        </ul>
-    </nav>
-    <div class="container" id="skills">
-        <h2>Key Skills</h2>
-        <ul>
-            <li>Project Management</li>
-            <li>Marketing</li>
-            <li>Change Management</li>
-            <li>Agile</li>
-            <li>Team Building</li>
-        </ul>
-    </div>
-    <div class="container" id="about">
-        <h2>About Me</h2>
-        <p class="personal-note">Hi, I'm Elena Shcherbinina. Welcome to my personal website! Here you'll find more about my journey, my work, and my passion for transforming ideas into action.</p>
-        <p>I am a project manager with 30 years of experience. I've been a project manager since childhood, though I didn't realize it at the time. Every project I encounter is immediately broken down in my mind into tasks. I assess all necessary resources, budget, and timelines, while simultaneously evaluating risks and developing mitigation strategies. After each project, I conduct a thorough review to extract valuable lessons learned.</p>
-        <p>Whether it's a move, a children's birthday party, developing a new marketing product for a million-strong audience, or a trip to the store, I always fully immerse myself in the project and understand all its details. I believe that only through such dedication can a project manager perform their job effectively.</p>
-        <p>My team holds a special place in my heart. I see myself not as a leader, but as a facilitator who helps the team excel, motivates them, assists in overcoming obstacles, finds necessary resources, and resolves conflicts. Everything is done to achieve the best possible results.</p>
-    </div>
-    <div class="container" id="projects">
-        <h2>Recent Projects</h2>
-        <div class="projects-container">
-            <div class="project">
-                <h3>Centum</h3>
-                <img src="https://github.com/shcherell/personal-website/blob/main/path_to_centum_image.jpeg?raw=true" alt="Centum">
-                <p><span class="highlight">My Role:</span> Managed technical decisions during planning, planned milestones, decomposed tasks for each milestone, prioritized tasks, budgeted, conducted regular team meetings, supported the team, resolved conflicts, maintained motivation, and organized the testing process.</p>
-                <p class="project-description">Centum is a narrative-driven adventure where everything may be a lie. <a href="https://store.steampowered.com/app/2625550/Centum/" target="_blank">Steam</a> The project involved a distributed team consisting of an art director, 3 artists, 2 programmers, a sound designer, a game designer, a product owner, and a writer. External suppliers included a team of translators and testers, and the project was financed by an external investor. The project took 2 years to complete, working through milestones using SCRUM and Kanban methodologies.</p>
-            </div>
-            <div class="project">
-                <h3>Vengeance of Mr. Peppermint</h3>
-                <img src="https://github.com/shcherell/personal-website/blob/main/path_to_vengeance_image.jpeg?raw=true" alt="Vengeance of Mr. Peppermint">
-                <p><span class="highlight">My Role:</span> Planned milestones, decomposed tasks, conducted regular meetings, supported the team, prepared reports, presented milestones to the publisher, gathered feedback, and managed the budget.</p>
-                <p class="project-description">Vengeance of Mr. Peppermint is a 2D side-scrolling fighter with Korean thriller vibes. <a href="https://store.steampowered.com/app/2287560/Vengeance_of_Mr_Peppermint/" target="_blank">Steam</a> The project involved a distributed team consisting of an art director, 4 artists, one programmer, a product owner, a sound designer, and a translator. External service providers included testers. The project was financed by a publisher and lasted 1 year, with milestone-based financing.</p>
-            </div>
-            <div class="project">
-                <h3>Dwarven Skykeep</h3>
-                <img src="https://github.com/shcherell/personal-website/blob/main/path_to_dwarven_skykeep_image.jpeg?raw=true" alt="Dwarven Skykeep">
-                <p><span class="highlight">My Role:</span> Organized the distributed team's work, conducted regular meetings, maintained team motivation, managed the budget, handled release management, prepared reports, presented milestones to the publisher, gathered feedback, actively tested, and participated in game design (designed one of the game worlds).</p>
-                <p class="project-description">Dwarven Skykeep is a strategic 2D base builder. <a href="https://store.steampowered.com/app/1076120/Dwarven_Skykeep/" target="_blank">Steam</a> The project involved a distributed team consisting of 3 artists, 3 programmers, 4 game designers, a narrative designer, and a sound designer, with involved testers. The project was partially financed by a publisher and took 2 years to complete, structured by milestones with intermediate releases.</p>
-            </div>
-            <div class="project">
-                <h3>Psychomachia</h3>
-                <img src="https://github.com/shcherell/personal-website/blob/main/path_to_psychomachia_image.jpeg?raw=true" alt="Psychomachia">
-                <p><span class="highlight">My Role:</span> Planned the scope of the prototype, planned iterations, conducted regular team meetings, managed the budget, and developed the narrative idea of the game.</p>
-                <p class="project-description">Psychomachia is a turn-based tactical roguelite without action points, where your every attack backfires. The project is currently in the prototyping stage and is planned for a 6-month duration. The team includes an art director, 2 artists, a developer, and a product owner.</p>
-            </div>
-        </div>
-    </div>
-    <div class="container" id="achievements">
-        <h2>Key Achievements</h2>
-        <ul>
-            <li><span class="highlight">Implemented Agile Methodology:</span> Successfully implemented Agile (SCRUM and Kanban) methodology at Hack The Publisher. Previously, teams worked in a disjointed manner without regular meetings or iteration planning. The result was increased work efficiency, strengthened team spirit, and improved motivation.</li>
-            <li><span class="highlight">Managed Multiple Projects:</span> Simultaneously managed 3 projects according to the company's goals. Planned the projects and key resources. All projects were completed within budget and schedule, requiring careful time management and competent delegation.</li>
-            <li><span class="highlight">Reduced Advertising Costs:</span> Reduced the cost of online advertising conversion by more than 30% for a major supplier of home medical supplies through website restructuring, fine-tuning analytics, changing advertising strategies, and conducting A/B testing.</li>
-        </ul>
-    </div>
-    <div class="container" id="facts">
-        <h2>Facts</h2>
-        <ul>
-            <li><span class="highlight">Yandex Experience:</span> Worked at Yandex (the largest Russian internet company with a matrix structure). Started as an account manager and was promoted to head of the commercial department in Kazakhstan.</li>
-            <li><span class="highlight">Coffee Shop Organizer:</span> Organized the opening of a coffee shop (selection of location, supplier selection, construction supervision, staff recruitment, workspace organization).</li>
-            <li><span class="highlight">Startup Co-Founder:</span> Worked at a startup and was invited to join the co-founders.</li>
-        </ul>
-    </div>
     <div class="container" id="blog">
         <h2>Blog</h2>
         <div class="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item">
+                <div class="carousel-item active">
                     <h3>Emotional Intelligence and Parenthood</h3>
                     <p>The topic of emotional intelligence is being discussed more and more. We have all already agreed that developed emotional intelligence is necessary for people in managerial positions, and in general helps them to deal more effectively with life situations. I've been thinking about the connection between emotional intelligence and parenthood. A little person who can't talk and constantly has needs is the perfect simulator. Is it possible that having children will be an added benefit to a candidate for a managerial position in the future? What do you think?</p>
                 </div>
@@ -329,30 +99,40 @@
                     <p>So, a team consists of people who work in close collaboration, while a group consists of employees who independently complete their tasks. There are employees with whom it is essential to form a team, and there will be those who will work as a group simply because of the specifics of the work performed. The group must develop the tools to help it function well due to stable work. That is predictability, clarity, and clarity of tasks. Also, several separate teams on one project may be the decision because building a close collaboration of 30 people is impossible. This is an incorrect goal that will require an incredible resource. What can help unite specialists into a team? The organization's culture and the team's culture (each with its own internal rituals and traditions) contribute to the development of a sense of belonging and shared values among team members. It is a good decision to make a list of measures for the year that can be gradually implemented to start managing the culture. In many teams, there is a key individual who acts as the glue that holds the team together. If this person leaves, it's crucial to arrange a timely replacement. Failure to do so can lead to team disintegration and a decline in productivity, often without a clear understanding of the cause.</p>
                 </div>
             </div>
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+            <button class="next" onclick="plusSlides(1)">&#10095;</button>
         </div>
     </div>
-    <footer>
-        <p>&copy; 2024 Elena Shcherbinina</p>
-    </footer>
     <script>
         let slideIndex = 0;
-        showSlides();
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
 
         function showSlides(n) {
             let slides = document.getElementsByClassName("carousel-item");
-            if (n >= slides.length) { slideIndex = 0 }
-            if (n < 0) { slideIndex = slides.length - 1 }
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
+            if (n >= slides.length) {
+                slideIndex = 0;
             }
-            slides[slideIndex].style.display = "block";
+            if (n < 0) {
+                slideIndex = slides.length - 1;
+            }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            slides[slideIndex].classList.add("active");
         }
+
+        function plusSlides(n) {
+            slideIndex += n;
+            if (slideIndex >= document.getElementsByClassName("carousel-item").length) {
+                slideIndex = 0;
+            } else if (slideIndex < 0) {
+                slideIndex = document.getElementsByClassName("carousel-item").length - 1;
+            }
+            showSlides(slideIndex);
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            showSlides(slideIndex);
+        });
     </script>
 </body>
 </html>
