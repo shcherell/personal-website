@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -20,14 +21,50 @@
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        nav {
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact-info p {
+            margin: 0.5em 0;
+        }
+        .contact-info img {
+            border-radius: 50%;
+            margin-bottom: 0.5em;
+        }
+        .contact-info .tagline {
+            font-weight: bold;
+            margin-top: 0.5em;
+            font-size: 1.2em;
+        }
+        .social-links {
             display: flex;
             justify-content: center;
+            margin-top: 1em;
+        }
+        .social-links a {
+            color: #0066cc;
+            margin: 0 0.5em;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #004080;
+        }
+        nav {
             background-color: #e0e0e0;
             padding: 1em 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        nav a {
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-links a {
             color: #333;
             padding: 0.5em 1.5em;
             text-decoration: none;
@@ -35,9 +72,14 @@
             margin: 0 1em;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-        nav a:hover {
+        .nav-links a:hover {
             background-color: #cccccc;
             color: #333;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
         }
         .container {
             padding: 2em;
@@ -76,19 +118,6 @@
         ul li a:hover {
             color: #004080;
         }
-        .contact-info a {
-            color: #0066cc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            margin: 0 0.5em;
-        }
-        .contact-info a:hover {
-            color: #004080;
-        }
-        .contact-info img {
-            border-radius: 50%;
-            margin-bottom: 1em;
-        }
         .projects-container {
             display: flex;
             justify-content: center;
@@ -113,6 +142,13 @@
             font-weight: 600;
             margin-bottom: 0.5em;
         }
+        .project-description {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 0.9em;
+        }
+        .emphasis {
+            font-weight: bold;
+        }
         .blog-post {
             margin-bottom: 2em;
         }
@@ -122,23 +158,48 @@
         .blog-post p {
             margin: 0.5em 0;
         }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links a {
+                padding: 1em;
+                margin: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="contact-info">
-            <p><a href="tel:+41772390980">+41 77 239 09 80</a> | <a href="mailto:shcherell@gmail.com">shcherell@gmail.com</a> | <a href="https://www.linkedin.com/in/shcherell/" target="_blank">LinkedIn</a> | <a href="https://github.com/shcherell/personal-website/blob/main/Elena_Shcherbinina_Resume.pdf?raw=true" download>Download Resume</a></p>
             <img src="https://github.com/shcherell/personal-website/blob/main/path_to_your_photo.jpeg?raw=true" alt="Elena Shcherbinina" width="150">
-            <p>Transforming Ideas into Action | Solving Problems & Driving Results | PMP-Certified Project Manager | Expert in Agile & Marketing Strategies</p>
+            <p class="tagline">Transforming Ideas into Action | Solving Problems & Driving Results | PMP-Certified Project Manager | Expert in Agile & Marketing Strategies</p>
+            <div class="social-links">
+                <a href="tel:+41772390980"><i class="fas fa-phone"></i></a>
+                <a href="mailto:shcherell@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/shcherell/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/shcherell/personal-website/blob/main/Elena_Shcherbinina_Resume.pdf?raw=true" download><i class="fas fa-file-download"></i></a>
+            </div>
         </div>
     </header>
     <nav>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#achievements">Achievements</a>
-        <a href="#facts">Facts</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#facts">Facts</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
     <div class="container" id="about">
         <h2>About Me</h2>
@@ -160,24 +221,24 @@
                 <h3>Centum</h3>
                 <img src="https://github.com/shcherell/personal-website/blob/main/path_to_centum_image.jpeg?raw=true" alt="Centum">
                 <ul>
-                    <li><span class="highlight">My Role:</span> Managed technical decisions during planning, planned milestones, decomposed tasks for each milestone, prioritized tasks, budgeted, conducted regular team meetings, supported the team, resolved conflicts, maintained motivation, and organized the testing process.</li>
-                    <li><span class="highlight">Project Description:</span> Narrative-driven adventure where everything may be a lie. <a href="https://store.steampowered.com/app/2625550/Centum/" target="_blank">Steam</a></li>
+                    <li><span class="highlight">My Role:</span> <span class="project-description">Managed technical decisions during planning, planned milestones, decomposed tasks for each milestone, prioritized tasks, budgeted, conducted regular team meetings, supported the team, resolved conflicts, maintained motivation, and organized the testing process.</span></li>
+                    <li><span class="highlight">Project Description:</span> <span class="project-description">Narrative-driven adventure where everything may be a lie. <a href="https://store.steampowered.com/app/2625550/Centum/" target="_blank">Steam</a></span></li>
                 </ul>
             </div>
             <div class="project">
                 <h3>Vengeance of Mr. Peppermint</h3>
                 <img src="https://github.com/shcherell/personal-website/blob/main/path_to_vengeance_image.jpeg?raw=true" alt="Vengeance of Mr. Peppermint">
                 <ul>
-                    <li><span class="highlight">My Role:</span> Planned milestones, decomposed tasks, conducted regular meetings, supported the team, prepared reports, presented milestones to the publisher, gathered feedback, and managed the budget.</li>
-                    <li><span class="highlight">Project Description:</span> A 2D side-scrolling fighter with Korean thriller vibes. <a href="https://store.steampowered.com/app/2287560/Vengeance_of_Mr_Peppermint/" target="_blank">Steam</a></li>
+                    <li><span class="highlight">My Role:</span> <span class="project-description">Planned milestones, decomposed tasks, conducted regular meetings, supported the team, prepared reports, presented milestones to the publisher, gathered feedback, and managed the budget.</span></li>
+                    <li><span class="highlight">Project Description:</span> <span class="project-description">A 2D side-scrolling fighter with Korean thriller vibes. <a href="https://store.steampowered.com/app/2287560/Vengeance_of_Mr_Peppermint/" target="_blank">Steam</a></span></li>
                 </ul>
             </div>
             <div class="project">
                 <h3>Dwarven Skykeep</h3>
                 <img src="https://github.com/shcherell/personal-website/blob/main/path_to_dwarven_skykeep_image.jpeg?raw=true" alt="Dwarven Skykeep">
                 <ul>
-                    <li><span class="highlight">My Role:</span> Organized the distributed team's work, conducted regular meetings, maintained team motivation, managed the budget, handled release management, prepared reports, presented milestones to the publisher, gathered feedback, actively tested, and participated in game design (designed one of the game worlds).</li>
-                    <li><span class="highlight">Project Description:</span> Strategic 2D base builder. <a href="https://store.steampowered.com/app/1076120/Dwarven_Skykeep/" target="_blank">Steam</a></li>
+                    <li><span class="highlight">My Role:</span> <span class="project-description">Organized the distributed team's work, conducted regular meetings, maintained team motivation, managed the budget, handled release management, prepared reports, presented milestones to the publisher, gathered feedback, actively tested, and participated in game design (designed one of the game worlds).</span></li>
+                    <li><span class="highlight">Project Description:</span> <span class="project-description">Strategic 2D base builder. <a href="https://store.steampowered.com/app/1076120/Dwarven_Skykeep/" target="_blank">Steam</a></span></li>
                 </ul>
             </div>
         </div>
@@ -210,5 +271,11 @@
     <footer>
         <p>&copy; 2024 Elena Shcherbinina</p>
     </footer>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
 </body>
 </html>
