@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваше Имя - Профессиональный Портфолио</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: #333;
+        }
+        header {
+            background-color: #0066cc;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #003366;
+        }
+        nav a {
+            color: white;
+            padding: 1em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .container {
+            padding: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ваше Имя</h1>
+        <p>Профессиональный Портфолио</p>
+    </header>
+    <nav>
+        <a href="#about">Обо мне</a>
+        <a href="#projects">Проекты</a>
+        <a href="#skills">Навыки</a>
+        <a href="#resume">Резюме</a>
+        <a href="#blog">Блог</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+    <div class="container" id="about">
+        <h2>Обо мне</h2>
+        <p>Привет! Меня зовут [Ваше Имя]. Я увлечен разработкой игр и уже успел поработать над несколькими проектами. Моя цель - получить опыт в игровой индустрии и развиваться как профессионал.</p>
+        <p>Образование: [Ваше образование]</p>
+        <p>Ключевые навыки: программирование, дизайн, командная работа, креативность.</p>
+    </div>
+    <div class="container" id="projects">
+        <h2>Проекты</h2>
+        <ul>
+            <li><a href="https://store.steampowered.com/app/2625550/Centum/" target="_blank">Centum</a></li>
+            <li><a href="https://store.steampowered.com/app/2287560/Vengeance_of_Mr_Peppermint/" target="_blank">Vengeance of Mr. Peppermint</a></li>
+            <li><a href="https://store.steampowered.com/app/1076120/Dwarven_Skykeep/" target="_blank">Dwarven Skykeep</a></li>
+        </ul>
+    </div>
+    <div class="container" id="skills">
+        <h2>Навыки</h2>
+        <p>Мои ключевые навыки включают:</p>
+        <ul>
+            <li>Программирование на C++, C#, Python</li>
+            <li>Работа с игровыми движками (Unity, Unreal Engine)</li>
+            <li>Основы графического дизайна</li>
+            <li>Навыки командной работы и управления проектами</li>
+        </ul>
+    </div>
+    <div class="container" id="resume">
+        <h2>Резюме</h2>
+        <embed src="path_to_your_resume.pdf" type="application/pdf" width="100%" height="600px" />
+        <p><a href="path_to_your_resume.pdf" download>Скачать резюме</a></p>
+    </div>
+    <div class="container" id="blog">
+        <h2>Блог</h2>
+        <p>Здесь вы можете размещать свои статьи и новости.</p>
+    </div>
+    <div class="container" id="contact">
+        <h2>Контакты</h2>
+        <form>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="message">Сообщение:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br>
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Ваше Имя</p>
+    </footer>
+</body>
+</html>
