@@ -6,14 +6,146 @@
     <title>Professional Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Сюда вставьте ваш CSS код */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+        }
+        header {
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 1.5em 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #e0e0e0;
+            padding: 1em 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #333;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin: 0 0.5em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #cccccc;
+            color: #333;
+        }
+        .container {
+            padding: 2em;
+            max-width: 1200px;
+            margin: 2em auto;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #e0e0e0;
+            color: #333;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        h2 {
+            color: #333;
+            font-weight: 500;
+        }
+        ul {
+            list-style-type: disc;
+            padding: 0 0 0 1.5em;
+        }
+        ul li {
+            margin: 0.5em 0;
+        }
+        ul li a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        ul li a:hover {
+            color: #004080;
+        }
+        .contact-info a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover {
+            color: #004080;
+        }
+        .contact-info img {
+            border-radius: 50%;
+            margin-bottom: 1em;
+        }
+        .projects-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .project {
+            flex: 0 1 30%;
+            margin: 1em;
+            padding: 1em;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .project img {
+            max-width: 100%;
+            height: auto;
+            margin: 1em 0;
+            border-radius: 8px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form label {
+            margin-top: 1em;
+        }
+        form input, form textarea {
+            padding: 0.75em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 0.5em;
+        }
+        form input[type="submit"] {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 1em;
+            transition: background-color 0.3s ease;
+        }
+        form input[type="submit"]:hover {
+            background-color: #004080;
+        }
+        .blog-post {
+            margin-bottom: 2em;
+        }
+        .blog-post h3 {
+            margin: 0 0 0.5em 0;
+        }
+        .blog-post p {
+            margin: 0.5em 0;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="contact-info">
             <p><a href="tel:+41772390980">+41 77 239 09 80</a> | <a href="mailto:shcherell@gmail.com">shcherell@gmail.com</a> | <a href="https://www.linkedin.com/in/shcherell/" target="_blank">LinkedIn</a></p>
-            <img src="https://github.com/your_username/your_repository/raw/main/your_photo.jpg" alt="Elena Shcherbinina" width="150">
+            <img src="https://github.com/shcherell/personal-website/blob/main/path_to_your_photo.jpeg?raw=true" alt="Elena Shcherbinina" width="150">
         </div>
     </header>
     <nav>
@@ -43,7 +175,7 @@
         <div class="projects-container">
             <div class="project">
                 <h3>Centum</h3>
-                <img src="https://github.com/your_username/your_repository/raw/main/centum_image.jpg" alt="Centum">
+                <img src="https://github.com/shcherell/personal-website/blob/main/path_to_centum_image.jpeg?raw=true" alt="Centum">
                 <p>Narrative-driven adventure where everything may be a lie. Detail: <a href="https://store.steampowered.com/app/2625550/Centum/" target="_blank">Steam</a></p>
                 <ul>
                     <li>This project was developed by a distributed team consisting of an art director, 3 artists, 2 programmers, a sound designer, a game designer, a product owner, and a writer.</li>
@@ -55,7 +187,7 @@
             </div>
             <div class="project">
                 <h3>Vengeance of Mr. Peppermint</h3>
-                <img src="https://github.com/your_username/your_repository/raw/main/vengeance_image.jpg" alt="Vengeance of Mr. Peppermint">
+                <img src="https://github.com/shcherell/personal-website/blob/main/path_to_vengeance_image.jpeg?raw=true" alt="Vengeance of Mr. Peppermint">
                 <p>A 2D side-scrolling fighter with Korean thriller vibes. Detail: <a href="https://store.steampowered.com/app/2287560/Vengeance_of_Mr_Peppermint/" target="_blank">Steam</a></p>
                 <ul>
                     <li>This project was developed by a distributed team consisting of an art director, 4 artists, one programmer, a product owner, a sound designer, and a translator.</li>
@@ -65,7 +197,7 @@
             </div>
             <div class="project">
                 <h3>Dwarven Skykeep</h3>
-                <img src="https://github.com/your_username/your_repository/raw/main/dwarven_skykeep_image.jpg" alt="Dwarven Skykeep">
+                <img src="https://github.com/shcherell/personal-website/blob/main/path_to_dwarven_skykeep_image.jpeg?raw=true" alt="Dwarven Skykeep">
                 <p>Strategic 2D base builder. Details: <a href="https://store.steampowered.com/app/1076120/Dwarven_Skykeep/" target="_blank">Steam</a></p>
                 <ul>
                     <li>This project was developed by a distributed team consisting of 3 artists, 3 programmers, 4 game designers, a narrative designer, a sound designer, and involved testers.</li>
@@ -94,8 +226,8 @@
     </div>
     <div class="container" id="resume">
         <h2>Resume</h2>
-        <embed src="https://github.com/your_username/your_repository/raw/main/Elena_Shcherbinina_Resume.pdf" type="application/pdf" width="100%" height="600px" />
-        <p><a href="https://github.com/your_username/your_repository/raw/main/Elena_Shcherbinina_Resume.pdf" download>Download Resume</a></p>
+        <embed src="https://github.com/shcherell/personal-website/blob/main/Elena_Shcherbinina_Resume.pdf?raw=true" type="application/pdf" width="100%" height="600px" />
+        <p><a href="https://github.com/shcherell/personal-website/blob/main/Elena_Shcherbinina_Resume.pdf?raw=true" download>Download Resume</a></p>
     </div>
     <div class="container" id="blog">
         <h2>Blog</h2>
