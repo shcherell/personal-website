@@ -3,135 +3,612 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Carousel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Elena Shcherbinina - Project Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <meta name="description" content="Elena Shcherbinina - PMP-Certified Project Manager with 30 years of experience in Agile and Marketing Strategies.">
+    <meta name="keywords" content="Project Manager, Agile, Marketing, PMP, Elena Shcherbinina">
+    <link rel="icon" href="path_to_favicon.ico" type="image/x-icon">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background: #faf5e6; /* Очень светлый бежевый цвет для всех секций */
+            height: 100%;
             color: #333;
+            line-height: 1.6;
+        }
+        #first-screen {
+            background: linear-gradient(to bottom right, red, violet, #faf5e6 50%); /* Градиент для первого экрана */
+            height: 100vh;
         }
         .container {
             padding: 2em;
-            max-width: 1200px;
-            margin: 2em auto;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
         }
-        .carousel {
+        #cube {
+            position: fixed;
+            top: 30px; /* Размещено выше */
+            left: 150px; /* Размещено правее */
+            width: 40px;
+            height: 40px;
+            border: 2px solid #000000; /* Черный цвет */
+            transform-origin: center;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 1em;
+            font-size: 1.1em;
+            font-weight: 500;
             position: relative;
-            max-width: 100%;
-            margin: auto;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+        nav a:hover {
+            color: #007BFF;
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #333;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2em auto;
+            padding: 0 2em;
+        }
+        .section {
+            margin-bottom: 4em; /* Добавлено больше воздуха между блоками */
+        }
+        .section h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5em;
+            font-weight: 600;
+            margin-bottom: 1em;
+        }
+        .section p {
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+        .project {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2em;
+        }
+        .project-details {
+            width: 60%;
+            padding-right: 2em;
+            border-right: 1px solid #ccc;
+            position: relative;
+        }
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5em;
+            padding-bottom: 0.5em;
+            border-bottom: 1px solid #ccc;
+        }
+        .project-header .project-number {
+            font-size: 2em;
+            font-weight: 600;
+            color: #ccc;
+        }
+        .project-header h3 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 0;
+        }
+        .project-details p {
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+        .project img, .project .gif-container {
+            width: 40%;
+            margin-left: 2em;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gif-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
-        .carousel-inner {
+        .gif-container img {
+            width: 100%;
+            height: auto;
+        }
+        .achievements {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            flex-direction: column;
+            gap: 1.5em;
         }
-        .carousel-item {
-            min-width: 100%;
-            box-sizing: border-box;
-            display: none;
+        .achievement {
+            display: flex;
+            align-items: center;
+            gap: 1em;
         }
-        .carousel-item.active {
-            display: block;
+        .achievement-icon {
+            width: 1.5em;
+            height: 1.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .carousel-item h3 {
-            margin: 0 0 0.5em 0;
+        .achievement-icon svg {
+            width: 100%;
+            height: 100%;
         }
-        .carousel-item p {
+        .achievement-text {
+            flex: 1;
+        }
+        .achievement-text h3 {
+            font-size: 1.3em; /* Уменьшен размер шрифта */
+            font-weight: 600;
+            margin: 0;
+        }
+        .achievement-text p {
+            font-size: 1em; /* Уменьшен размер шрифта */
+            font-weight: 300;
+            margin: 0.5em 0 0;
+        }
+        .education {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+        }
+        .education-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .education-item h3 {
+            font-size: 1.3em; /* Уменьшен размер шрифта */
+            font-weight: 600;
+            margin: 0;
+        }
+        .education-item p {
+            font-size: 1em; /* Уменьшен размер шрифта */
+            font-weight: 300;
+            margin: 0.5em 0 0;
+        }
+        .certificates {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+            margin-bottom: 4em; /* Добавлено больше воздуха между секцией и подвалом */
+        }
+        .certificate {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            padding: 0.5em 0;
+        }
+        .certificate a {
+            font-size: 1em; /* Уменьшен размер шрифта */
+            color: #007BFF;
+            text-decoration: none;
+        }
+        footer {
+            background: #faf5e6; /* Очень светлый бежевый цвет для подвала */
+            padding: 4em 0; /* Увеличена высота подвала */
+            border-top: 1px solid #ccc;
+        }
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left; /* Выровнено по левому краю */
+            font-size: 0.9em; /* Уменьшен размер шрифта в подвале */
+        }
+        .footer-content h3 {
+            margin: 0.5em 0;
+            font-size: 1.5em;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .footer-content p {
             margin: 0.5em 0;
         }
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            margin-top: -22px;
-            padding: 16px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            background-color: rgba(0, 0, 0, 0.5);
+        .footer-content a {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 1em; /* Уменьшен размер шрифта */
         }
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
+        .footer-content a:hover {
+            text-decoration: underline;
         }
-        .prev:hover, .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
+        .footer-name {
+            font-size: 2em;
+            font-weight: 600;
+            line-height: 1.5; /* Увеличен интервал между строками */
+            text-align: right; /* Выровнено по правому краю */
+        }
+        .footer-contacts {
+            text-align: right; /* Выровнено по правому краю */
+            margin-top: 1em;
+        }
+        .footer-contacts p {
+            margin: 0.2em 0;
+            font-size: 0.9em; /* Уменьшен размер шрифта для контактов */
+            font-weight: 400;
+        }
+        .footer-contacts a {
+            text-decoration: none;
+            color: #333;
+        }
+        .social-links {
+            margin: 1em 0;
+            text-align: right; /* Выровнено по правому краю */
+        }
+        .social-links a {
+            margin: 0 1em;
+            font-size: 1.2em;
+            display: inline-block;
+        }
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            nav {
+                position: static;
+                text-align: center;
+                margin-top: 1em;
+            }
+            .project {
+                flex-direction: column;
+            }
+            .project img, .project .gif-container {
+                width: 100%;
+                margin: 1em 0 0 0;
+            }
+            .project-details {
+                width: 100%;
+                padding-right: 0;
+                border-right: none;
+            }
+            .footer-content {
+                text-align: center; /* Выровнено по центру для мобильных устройств */
+            }
+            .footer-contacts {
+                text-align: center;
+            }
+            .social-links {
+                text-align: center;
+            }
+        }
+        /* Styles from the first code */
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8em; /* Добавлено больше воздуха между блоками */
+        }
+        .about-text {
+            flex: 1;
+            margin-right: 1em;
+            max-width: 65%; /* Увеличена ширина столбца */
+        }
+        .about-text h1 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 0.5em;
+        }
+        .about-text p {
+            font-size: 1em; /* Уменьшен размер шрифта */
+            font-weight: 300;
+            margin-bottom: 1em;
+        }
+        .about-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 3px solid #333;
+        }
+        .info-table-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 2em;
+        }
+        .info-table {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            width: 100%; /* Установлено на 100% ширины контейнера */
+            max-width: 800px; /* Ограничение максимальной ширины */
+        }
+        .info-cell {
+            border-top: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            padding: 0.5em; /* Уменьшены отступы внутри ячеек */
+            text-align: left;
+        }
+        .info-cell:nth-child(3n+3) {
+            border-right: none;
+        }
+        .info-cell:nth-child(-n+3) {
+            border-top: none;
+        }
+        .info-cell h3 {
+            font-size: 1.2em; /* Уменьшен размер шрифта */
+            font-weight: 600;
+            margin-bottom: 0.5em;
+        }
+        .info-cell p {
+            font-size: 0.9em; /* Уменьшен размер шрифта */
+            font-weight: 300;
+        }
+        @media (max-width: 768px) {
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-text {
+                margin-right: 0;
+                max-width: 100%;
+            }
+            .about-photo {
+                margin-top: 1em;
+            }
+            .info-table {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container" id="blog">
-        <h2>Blog</h2>
-        <div class="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <h3>Emotional Intelligence and Parenthood</h3>
-                    <p>The topic of emotional intelligence is being discussed more and more. We have all already agreed that developed emotional intelligence is necessary for people in managerial positions, and in general helps them to deal more effectively with life situations. I've been thinking about the connection between emotional intelligence and parenthood. A little person who can't talk and constantly has needs is the perfect simulator. Is it possible that having children will be an added benefit to a candidate for a managerial position in the future? What do you think?</p>
+    <div id="first-screen">
+        <div id="cube"></div>
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="container">
+            <section id="about" class="section">
+                <div class="about-section">
+                    <div class="about-text">
+                        <h1>Elena Shcherbinina</h1>
+                        <p>With around 30 years of experience, I am 37 years old and have been a project manager since childhood, though I didn’t realize it then. Every project I encounter is immediately broken down in my mind into tasks. I assess all necessary resources, budgets, and timelines while evaluating risks and developing mitigation strategies. After each project, I conduct a thorough review to extract valuable lessons learned.</p>
+                        <p>Whether it’s a move, a children’s birthday party, developing a new marketing product for a million-strong audience, or a store trip, I fully immerse myself in the project and understand all its details. I believe that only through such dedication can a project manager perform their job effectively.</p>
+                        <p>My team holds a special place in my heart. I see myself not as a leader, but as a facilitator who helps the team excel, motivates them, assists in overcoming obstacles, finds necessary resources, and resolves conflicts. Everything is done to achieve the best possible results.</p>
+                    </div>
+                    <img class="about-photo" src="path_to_your_photo.jpg" alt="Elena Shcherbinina">
                 </div>
-                <div class="carousel-item">
-                    <h3>What is More Important: The Team or the Project?</h3>
-                    <p>For me, the team always comes first. 🌟 When planning a project, it's not just about timelines and deliverables. It's about understanding and respecting each team member's preferences and goals for professional development. This consideration can prevent team burnout from tight deadlines and make a significant difference in the success of our projects. By prioritizing the well-being and growth of the team, we create a more positive and productive work environment and drive better project outcomes. Here are a few strategies I've found effective:
-                    <ul>
-                        <li>Balanced Workloads: Ensure that tasks are allocated in a way that avoids overburdening any single team member.</li>
-                        <li>Open Communication: Regular check-ins and open lines of communication help address concerns before they escalate.</li>
-                        <li>Professional Development: Align tasks with team members' career goals to foster engagement and growth.</li>
-                    </ul>
-                    A happy and motivated team leads to successful projects.</p>
+                <div class="info-table-wrapper">
+                    <div class="info-table">
+                        <div class="info-cell">
+                            <h3>Locations</h3>
+                            <p>Winterthur, Switzerland. Work permit B</p>
+                        </div>
+                        <div class="info-cell">
+                            <h3>Superpower</h3>
+                            <p>High-precision risk assessment</p>
+                        </div>
+                        <div class="info-cell">
+                            <h3>Specialization</h3>
+                            <p>Project management, marketing</p>
+                        </div>
+                        <div class="info-cell">
+                            <h3>Hobbies</h3>
+                            <p>Running, knitting</p>
+                        </div>
+                        <div class="info-cell">
+                            <h3>Family</h3>
+                            <p>Single parent</p>
+                        </div>
+                        <div class="info-cell">
+                            <h3>Currently Reading</h3>
+                            <p>"1984" by George Orwell</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <h3>The Difference Between a Team and Specialists Working on the Same Project</h3>
-                    <p>A true team is characterized by high motivation and a shared interest in the result. Team members collaborate to overcome obstacles, and each contributes to the project's success, making teamwork more efficient and rewarding.
-                    However, challenges arise when subgroups within a team exclude others from decision-making, or the team's goals diverge from the project's objectives. These issues can stem from dissatisfaction with management, internal conflicts, disagreement with project goals, or problems with deadlines and budgets. Understanding the root cause of team issues is not just important; it's crucial. It's the first step towards effective problem-solving. Addressing these concerns might involve improving communication, realigning the team with the project goals, or, in some cases, making difficult decisions about team composition.</p>
-                </div>
-                <div class="carousel-item">
-                    <h3>The Difference Between a Team and Specialists Working on the Same Project (Part 2)</h3>
-                    <p>So, a team consists of people who work in close collaboration, while a group consists of employees who independently complete their tasks. There are employees with whom it is essential to form a team, and there will be those who will work as a group simply because of the specifics of the work performed. The group must develop the tools to help it function well due to stable work. That is predictability, clarity, and clarity of tasks. Also, several separate teams on one project may be the decision because building a close collaboration of 30 people is impossible. This is an incorrect goal that will require an incredible resource. What can help unite specialists into a team? The organization's culture and the team's culture (each with its own internal rituals and traditions) contribute to the development of a sense of belonging and shared values among team members. It is a good decision to make a list of measures for the year that can be gradually implemented to start managing the culture. In many teams, there is a key individual who acts as the glue that holds the team together. If this person leaves, it's crucial to arrange a timely replacement. Failure to do so can lead to team disintegration and a decline in productivity, often without a clear understanding of the cause.</p>
-                </div>
-            </div>
-            <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
-            <button class="next" onclick="plusSlides(1)">&#10095;</button>
+            </section>
         </div>
     </div>
+    <div class="container">
+        <section id="projects" class="section" style="margin-top: 8em;">
+            <h2>Recent Projects</h2>
+            <div class="project">
+                <div class="project-details">
+                    <div class="project-header">
+                        <h3>Centum</h3>
+                        <span class="project-number">01</span>
+                    </div>
+                    <p>Centum is a narrative-driven adventure where everything may be a lie [Steam](#).</p>
+                    <ul>
+                        <li><strong>Team:</strong> Art director, 3 artists, 2 programmers, a sound designer, a game designer, a product owner, and a writer.</li>
+                        <li><strong>Approaches:</strong> Scrum, Kanban</li>
+                        <li><strong>Duration:</strong> 2 years</li>
+                        <li><strong>Responsibilities:</strong> Managed technical decisions during planning, planned milestones, decomposed tasks for each milestone, prioritized tasks, managed the budget, conducted regular team meetings, supported the team, resolved conflicts, maintained motivation, organized the testing process, managed external suppliers, and communicated with the publisher.</li>
+                    </ul>
+                </div>
+                <div class="gif-container">
+                    <img src="path_to_gif1.gif" alt="Project GIF">
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-details">
+                    <div class="project-header">
+                        <h3>Vengeance of Mr. Peppermint</h3>
+                        <span class="project-number">02</span>
+                    </div>
+                    <p>Vengeance of Mr. Peppermint is a 2D side-scrolling fighter with Korean thriller vibes [Steam](#).</p>
+                    <ul>
+                        <li><strong>Team:</strong> Art director, 4 artists, 1 programmer, a product owner, a sound designer, and a translator.</li>
+                        <li><strong>Duration:</strong> 1 year</li>
+                        <li><strong>Approach:</strong> Kanban</li>
+                        <li><strong>Responsibilities:</strong> Planned milestones, decomposed tasks, conducted regular meetings, supported the team, prepared reports, presented milestones to the publisher, gathered feedback, and managed the budget.</li>
+                    </ul>
+                </div>
+                <div class="gif-container">
+                    <img src="path_to_gif2.gif" alt="Project GIF">
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-details">
+                    <div class="project-header">
+                        <h3>Dwarven Skykeep</h3>
+                        <span class="project-number">03</span>
+                    </div>
+                    <p>Dwarven Skykeep is a strategic 2D base builder [Steam](#).</p>
+                    <ul>
+                        <li><strong>Team:</strong> 3 artists, 3 programmers, 4 game designers, a narrative designer, a sound designer, and 2 testers.</li>
+                        <li><strong>Duration:</strong> 2 years</li>
+                        <li><strong>Approach:</strong> Kanban</li>
+                        <li><strong>Responsibilities:</strong> Organized the distributed team's work, conducted regular meetings, maintained team motivation, managed the budget, handled release management, prepared reports, presented milestones to the publisher, gathered feedback, actively tested, and participated in game design (designed one of the game worlds).</li>
+                    </ul>
+                </div>
+                <div class="gif-container">
+                    <img src="path_to_gif3.gif" alt="Project GIF">
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-details">
+                    <div class="project-header">
+                        <h3>Psychomachia</h3>
+                        <span class="project-number">04</span>
+                    </div>
+                    <p>Psychomachia is a turn-based tactical roguelite without action points, where your every attack matters.</p>
+                    <ul>
+                        <li><strong>Team:</strong> Art director, 2 artists, a developer, and a product owner.</li>
+                        <li><strong>Approaches:</strong> Scrum, Kanban</li>
+                        <li><strong>Duration:</strong> 2 years</li>
+                        <li><strong>Responsibilities:</strong> Planned the scope of the prototype, planned iterations, conducted regular team meetings, managed the budget, and developed the narrative idea of the game.</li>
+                    </ul>
+                </div>
+                <div class="gif-container">
+                    <img src="path_to_gif4.gif" alt="Project GIF">
+                </div>
+            </div>
+        </section>
+        <section id="achievements" class="section">
+            <h2>Key Achievements</h2>
+            <div class="achievements">
+                <div class="achievement">
+                    <div class="achievement-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        </svg>
+                    </div>
+                    <div class="achievement-text">
+                        <h3>Implemented Agile Methodology</h3>
+                        <p>Successfully implemented Agile (SCRUM and Kanban) methodology at Hack The Publisher. Previously, teams worked in a disjointed manner without regular meetings or iteration planning. The result was increased work efficiency, strengthened team spirit, and improved motivation.</p>
+                    </div>
+                </div>
+                <div class="achievement">
+                    <div class="achievement-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        </svg>
+                    </div>
+                    <div class="achievement-text">
+                        <h3>Managed Multiple Projects</h3>
+                        <p>Simultaneously managed 3 projects according to the company's goals. Planned the projects and key resources. All projects were completed within budget and schedule, requiring careful time management and competent delegation.</p>
+                    </div>
+                </div>
+                <div class="achievement">
+                    <div class="achievement-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        </svg>
+                    </div>
+                    <div class="achievement-text">
+                        <h3>Reduced Advertising Costs</h3>
+                        <p>Reduced the cost of online advertising conversion by more than 30% for a major supplier of home medical supplies through website restructuring, fine-tuning analytics, changing advertising strategies, and conducting A/B testing.</p>
+                    </div>
+                </div>
+                <div class="achievement">
+                    <div class="achievement-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        </svg>
+                    </div>
+                    <div class="achievement-text">
+                        <h3>Yandex Experience</h3>
+                        <p>Worked at Yandex (the largest Russian internet company with a matrix structure). Started as an account manager and was promoted to head of the commercial department in Kazakhstan.</p>
+                    </div>
+                </div>
+                <div class="achievement">
+                    <div class="achievement-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        </svg>
+                    </div>
+                    <div class="achievement-text">
+                        <h3>Coffee Shop Organizer</h3>
+                        <p>Organized the opening of a coffee shop (selection of location, supplier selection, construction supervision, staff recruitment, workspace organization).</p>
+                    </div>
+                </div>
+                <div class="achievement">
+                    <div class="achievement-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        </svg>
+                    </div>
+                    <div class="achievement-text">
+                        <h3>Startup Co-Founder</h3>
+                        <p>Worked at a startup and was invited to join the co-founders.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="education" class="section">
+            <h2>Education</h2>
+            <div class="education">
+                <div class="education-item">
+                    <h3>Bachelor's Degree in Economics</h3>
+                    <p>Siberian Institute of Management, Nowosibirsk, 2008-2012<br>Graduated summa cum laude</p>
+                </div>
+            </div>
+            <h2>Certificates</h2>
+            <div class="certificates">
+                <div class="certificate">
+                    <a href="path_to_pmp_certificate.pdf">PMP Certification</a>
+                </div>
+                <div class="certificate">
+                    <a href="path_to_scrum_certificate.pdf">Agile SCRUM Master</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-name">
+                Elena<br>Shcherbinina
+            </div>
+            <div class="footer-contacts">
+                <p>Phone: +41772390980 | <a href="mailto:shcherell@gmail.com">Email</a> | <a href="https://www.linkedin.com/in/elenashcherbinina" target="_blank">LinkedIn</a> | <a href="path_to_resume.pdf" download>Download Resume</a></p>
+            </div>
+        </div>
+    </footer>
     <script>
-        let slideIndex = 0;
-
-        function showSlides(n) {
-            let slides = document.getElementsByClassName("carousel-item");
-            if (n >= slides.length) {
-                slideIndex = 0;
-            }
-            if (n < 0) {
-                slideIndex = slides.length - 1;
-            }
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
-            }
-            slides[slideIndex].classList.add("active");
-        }
-
-        function plusSlides(n) {
-            slideIndex += n;
-            if (slideIndex >= document.getElementsByClassName("carousel-item").length) {
-                slideIndex = 0;
-            } else if (slideIndex < 0) {
-                slideIndex = document.getElementsByClassName("carousel-item").length - 1;
-            }
-            showSlides(slideIndex);
-        }
-
-        document.addEventListener('DOMContentLoaded', (event) => {
-            showSlides(slideIndex);
+        document.addEventListener('scroll', function() {
+            var cube = document.getElementById('cube');
+            var scrollPosition = window.scrollY;
+            var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            var rotateDegree = (scrollPosition / maxScroll) * 360; // Вращение кубика на 360 градусов при прокрутке до конца
+            cube.style.transform = 'rotate(' + rotateDegree + 'deg)';
         });
     </script>
 </body>
