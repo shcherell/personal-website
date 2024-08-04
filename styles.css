@@ -54,6 +54,29 @@ nav {
     position: absolute;
     top: 20px;
     right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.language-switcher {
+    display: inline-flex;
+    gap: 1em;
+    align-items: center;
+    margin-left: 2em;
+    font-size: 1em;
+}
+
+.language-option {
+    cursor: pointer;
+    color: #333;
+    padding: 0.3em 0.6em;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.language-option:hover,
+.language-option.active {
+    border-bottom: 2px solid #555; /* серый цвет */
 }
 
 .container {
