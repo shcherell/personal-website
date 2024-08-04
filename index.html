@@ -20,11 +20,37 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Получение языка браузера пользователя
+        const userLang = navigator.language || navigator.userLanguage;
+
+        // Проверка, установлен ли флаг посещения
+        if (!sessionStorage.getItem('languageSet')) {
+            // Перенаправление на соответствующую страницу на основе языка браузера
+            if (userLang.startsWith('ru')) {
+                window.location.href = 'index-ru.html';
+            } else if (userLang.startsWith('de')) {
+                window.location.href = 'index-de.html';
+            } else {
+                window.location.href = 'index.html'; // По умолчанию английская версия
+            }
+            // Установка флага посещения, чтобы перенаправление выполнялось только при первом визите
+            sessionStorage.setItem('languageSet', true);
+        }
+    });
+</script>
     <div id="first-screen">
         <div id="cube" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"></div>
         <nav>
             <a href="#projects">Work</a>
             <a href="#footer">Contacts</a>
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <span onclick="switchLanguage('en')" class="language-option active">English</span>
+                <span onclick="switchLanguage('ru')" class="language-option">Русский</span>
+                <span onclick="switchLanguage('de')" class="language-option">Deutsch</span>
+            </div>
         </nav>
         <div class="container">
             <section id="about" class="section">
@@ -252,6 +278,7 @@
         </div>
     </footer>
     <script>
+        // Function to rotate elements on scroll
         document.addEventListener('scroll', function() {
             var cube = document.getElementById('cube');
             var scrollPosition = window.scrollY;
@@ -262,6 +289,33 @@
             var firstAchievementIcon = document.querySelector('.achievement-icon.rotate');
             if (firstAchievementIcon) {
                 firstAchievementIcon.style.transform = 'rotate(' + rotateDegree + 'deg)';
+            }
+        });
+
+        // Function to switch languages
+        function switchLanguage(lang) {
+            if (lang === 'en') {
+                window.location.href = 'index.html';
+            } else if (lang === 'ru') {
+                window.location.href = 'index-ru.html';
+            } else if (lang === 'de') {
+                window.location.href = 'index-de.html';
+            }
+        }
+
+        // Auto-detect and redirect to user's language
+        document.addEventListener('DOMContentLoaded', () => {
+            const userLang = navigator.language || navigator.userLanguage;
+
+            if (!sessionStorage.getItem('languageSet')) {
+                if (userLang.startsWith('ru')) {
+                    window.location.href = 'index-ru.html';
+                } else if (userLang.startsWith('de')) {
+                    window.location.href = 'index-de.html';
+                } else {
+                    window.location.href = 'index.html';
+                }
+                sessionStorage.setItem('languageSet', true);
             }
         });
     </script>
